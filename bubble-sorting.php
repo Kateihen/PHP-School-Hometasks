@@ -21,4 +21,4 @@ function bubble(&$a)
 
 bubble($a);
 echo 'After sorting: ' . PHP_EOL;
-echo json_encode($a); //I don't understand why there's 'null' at the beginnign of the list :(
+echo json_encode($a); //I don't understand why there's 'null' at the beginning of the list :(
