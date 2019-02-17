@@ -1,6 +1,9 @@
 <?php
 
-$a = [4, 7, 1, 3, 2, 6];
+$a = [4, 7, -8, 0, 1, 3, 2, 6];
+
+echo 'Before sorting: ' . PHP_EOL;
+echo json_encode($a) . PHP_EOL;
 
 function merge(&$a, $p, $q, $r)
 {
@@ -16,6 +19,9 @@ function merge(&$a, $p, $q, $r)
     for ($j = 1; $j <= $n2; $j++) {
         $R[$j] = $a[$q + $j];
     }
+
+    $L[$n1 + 1] = -10000000;
+    $R[$n2 + 1] = -10000000;
 
     $i = 1;
     $j = 1;
@@ -42,4 +48,6 @@ function mergeSort(&$a, $p, $r)
 }
 
 mergeSort($a, 0, count($a) - 1);
+
+echo 'After sorting: ' . PHP_EOL;
 echo json_encode($a);
