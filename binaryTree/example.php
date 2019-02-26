@@ -1,9 +1,7 @@
 <?php
 
-require_once __DIR__."./tree.php";
-require_once __DIR__."./treeNode.php";
-
 $obj = new binaryTree();
+
 $obj->insert(18);
 $obj->insert(3);
 $obj->insert(19);
