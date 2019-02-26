@@ -1,8 +1,6 @@
 <?php
 
-require_once __DIR__."./treeNode.php";
-
-class binaryTree extends treeNode
+class binaryTree
 {
     private $root;
     private $parent;
