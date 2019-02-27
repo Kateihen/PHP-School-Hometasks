@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . "/separateNode.php";
+require_once __DIR__ . "/linkedList.php";
 
 $linkedList = new linkedList();
 
