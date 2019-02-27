@@ -1,10 +1,11 @@
 <?php
 
-class binaryTree
+require_once __DIR__ . "/treeNode.php";
+
+class binaryTree extends treeNode
 {
     private $root;
     private $parent;
-    private $current;
 
     public function insert()
     {
@@ -12,33 +13,34 @@ class binaryTree
         $newElement->setValue($value);
 
         if(!empty($this->root)){
-            $this->addNode($newElement, $this->current, $this->parent);
+            $current = $this->root;
+            $parent = null;
+            $this->addNode($newElement, $current, $parent);
         } else {
             $this->root = $newElement;
-            $this->current = $this->root;
-            $this->parent = $this->root;
         }
     }
 
     public function addNode($newElement, &$current, &$parent)
     {           
-        while(!empty($this->current)) {
-            if ($newElement->getValue() < $this->current->getValue()) {
-                $this->parent = $this->current;
-                $this->current = $this->current->getLChild();
-                $this->addNode($newElement, $this->current, $this->parent);
+        if(!empty($current)) {
+            if ($newElement->getValue() < $current->getValue()) {
+                $parent = $current;
+                $current = $current->getLChild();
+                $this->addNode($newElement, $current, $parent);
             } else {
-                $this->parent = $this->current;
-                $this->current = $this->current->getRChild();
-                $this->addNode($newElement, $this->current, $this->parent);
+                $parent = $current;
+                $current = $current->getRChild();
+                $this->addNode($newElement, $current, $parent);
             }
-        }
-        $this->current = $newElement;
-        $newElement->setAncestor($this->parent);
-        if ($newElement->getValue() < $this->parent->getValue()) {
-            $this->parent->setLChild($newElement);
         } else {
-            $this->parent->setRChild($newElement);
+            $current = $newElement;
+            $newElement->setAncestor($parent);
+            if ($newElement->getValue() < $parent->getValue()) {
+                $parent->setLChild($newElement);
+            } else {
+            $parent->setRChild($newElement);
+            }
         }
     }
 
