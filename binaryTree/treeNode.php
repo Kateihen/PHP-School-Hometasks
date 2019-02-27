@@ -22,7 +22,7 @@ class treeNode
         $this->lChild = $lChild;
     }
 
-    public function getLChild($lChild)
+    public function getLChild()
     {
         return $this->lChild;
     }
@@ -32,7 +32,7 @@ class treeNode
         $this->rChild = $rChild;
     }
 
-    public function getRChild($rChild)
+    public function getRChild()
     {
         return $this->rChild;
     }
