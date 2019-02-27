@@ -1,6 +1,8 @@
 <?php
 
-class linkedList
+require_once __DIR__ . "/separateNode.php";
+
+class linkedList extends separateNode
 {
     private $head = null;
     private $tail = null;
