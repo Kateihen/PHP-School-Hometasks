@@ -5,7 +5,6 @@ require_once __DIR__ . "/treeNode.php";
 class binaryTree extends treeNode
 {
     private $root;
-    private $parent;
 
     public function insert()
     {
