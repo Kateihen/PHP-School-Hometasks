@@ -64,6 +64,5 @@ class binaryTree extends treeNode
 
         $this->find($current, 0, $maxLevel, $data);
         var_dump($data);
-        var_dump($maxLevel);
     }
 }
