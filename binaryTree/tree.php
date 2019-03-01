@@ -5,6 +5,7 @@ require_once __DIR__ . "/treeNode.php";
 class binaryTree extends treeNode
 {
     private $root;
+    private $parent;
 
     public function insert()
     {
@@ -43,24 +44,26 @@ class binaryTree extends treeNode
         }
     }
 
-    private function find($root, $level, &$maxLevel, $data)
+    private function find($current, $level, &$maxLevel, $data)
     {
-        if (!empty($this->root)) {
-            $this->find($this->root->getLChild(), ++$level, $maxLevel, $data);
+        if (!empty($current)) {
+            $this->find($current->getLChild(), ++$level, $maxLevel, $data);
             if ($level > $maxLevel) {
                 $maxLevel = $level;
-                $data = $this->root->getValue;
+                $data = $current->getValue();
             }
-            $this->find($this->root->getRChild(), $level, $maxLevel, $data);
+            $this->find($current->getRChild(), $level, $maxLevel, $data);
         }
     }
 
     public function deepestNode()
     {
-        $data = null;
-        $maxLevel = -1;
+        $data;
+        $maxLevel = 0;
+        $current = $this->root;
 
-        $this->find($this->root, 0, $maxLevel, $data);
+        $this->find($current, 0, $maxLevel, $data);
         var_dump($data);
+        var_dump($maxLevel);
     }
 }
