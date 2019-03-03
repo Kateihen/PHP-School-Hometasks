@@ -29,7 +29,7 @@ class HashTable
         if($this->storage[$index] == $value) {
             echo $index . ' : ' . $value . PHP_EOL;
         } else {
-            $newIndex = $this->collisionResolver->resolveRead($index, $this->storage; $this->hashTableMaxLenght);
+            $newIndex = $this->collisionResolver->resolveRead($index, $this->storage, $this->hashTableMaxLenght);
             echo $newIndex . ' : ' . $value . PHP_EOL;
             }
         }
