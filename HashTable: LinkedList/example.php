@@ -13,16 +13,16 @@ $hashTable = new HashTable($hashTableLenght, new CollisionResolverLinkedList());
 $str1 = "Ada";
 $str2 = "Max";
 $str3 = "Aad";
-$str4 = "Lex";
-$str5 = "Til";
 
-$hashFunction = new hashFunction($string, $hashTableLenght);
+$hashFunction1 = new hashFunction($str1, $hashTableLenght);
+$hashTable->write($hashFunction1(), $str1);
 
-$hashTable->write($hashFunction(), $str1);
-$hashTable->write($hashFunction(), $str2);
-$hashTable->write($hashFunction(), $str3);
-$hashTable->write($hashFunction(), $str4);
-$hashTable->write($hashFunction(), $str5);
+$hashFunction2 = new hashFunction($str2, $hashTableLenght);
+$hashTable->write($hashFunction2(), $str2);
 
-$res = $hashTable->read($hashFunction(), $str2);
-var_dump($res);
+$hashFunction3 = new hashFunction($str3, $hashTableLenght);
+$hashTable->write($hashFunction3(), $str3);
+
+$hashTable->read($hashFunction1(), $str1);
+$hashTable->read($hashFunction2(), $str2);
+$hashTable->read($hashFunction3(), $str3);
