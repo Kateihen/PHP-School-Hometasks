@@ -12,8 +12,6 @@ class CollisionResolverLinkedList implements ResolverInterface
         $hranilishche[$index]->insert($initialValue);
         $hranilishche[$index]->insert($value);
         return $hranilishche;
-
-
     }
 
     public function resolveRead($index, $hranilishche, $value)
