@@ -24,14 +24,14 @@ class linkedList extends Node
 
         $this->count++;
         $newElement->setPosition($this->count);
-    }
-
+    }    
+    
     public function search($value)
     {
         $current = $this->head;
         while(!($value == $current->getValue())) {
             $current = $current->getNext();
         }
-        return $current->getPosition();
+        return $current;
     }
 }
