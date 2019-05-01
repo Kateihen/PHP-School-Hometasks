@@ -6,7 +6,7 @@ class separateNode
     private $next = null;
     private $previous = null;
 
-    public function __construct($value)
+    public function setValue($value)
     {
         $this->value = $value;
     }
