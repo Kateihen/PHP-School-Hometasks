@@ -6,7 +6,7 @@ require_once __DIR__ . "/hashFunction.php";
 require_once __DIR__ . "/CollisionResolver/CollisionResolverLinkedList.php";
 require_once __DIR__ . "/CollisionResolver/Node.php";
 require_once __DIR__ . "/CollisionResolver/linkedList.php";
-require_once __DIR__ . "/CollisionResolver/collistionResolverPlus1.php
+require_once __DIR__ . "/CollisionResolver/CollistionResolverPlus1.php
 
 $hashTableLenght = 12;
 $hashTable = new HashTable($hashTableLenght, new CollisionResolverLinkedList());
