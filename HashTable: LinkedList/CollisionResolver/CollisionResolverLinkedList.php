@@ -5,17 +5,20 @@ require_once __DIR__ . "/linkedList.php";
 
 class CollisionResolverLinkedList implements ResolverInterface
 {
-    public function resolve($index, $hranilishche, $size)
+    public function resolve($index, $hranilishche, $value)
     {
-        $newList = new linkedList();
-        $newList->insert($hranilishche[$index]);
-        $newList->insert($value);
+        $initialValue = $hranilishche[$index];
+        $hranilishche[$index] = new linkedList();
+        $hranilishche[$index]->insert($initialValue);
+        $hranilishche[$index]->insert($value);
+        return $hranilishche;
+
 
     }
 
-    public function resolveRead($index, $hranilishche)
+    public function resolveRead($index, $hranilishche, $value)
     {
-        $newList = $hranilishche[$index];
-        return $newList->search($value);
+        $NodeInList = $hranilishche[$index]->search($value);
+        return $NodeInList;
     }
 }
