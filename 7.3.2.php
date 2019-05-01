@@ -3,6 +3,13 @@
 class bracesSymmetry 
 {
     private $braces;
+    private $openBraces = ['(', '{', '[', '<',];
+    private $closeBraces = [
+        '(' => ')',
+        '{' => '}',
+        '[' => ']',
+        '<' => '>',
+        ];
     private $balance = [];
     public $result;
 
@@ -12,57 +19,38 @@ class bracesSymmetry
         $this->areValidBraces($this->braces);
     }
 
-    public function areValidBraces($braces) 
+    private function areValidBraces($braces)
     {
-        if ($this->braces === '') {
+        if ($braces === '') {
             $this->result = true;
             var_dump($this->result);
-        } elseif (!is_string($this->braces)) {
+
+        } elseif (!is_string($braces)) {
             echo 'Not a string. Please, try again.' . PHP_EOL;
         }
 
-        for ($i = 0; $i < strlen($this->braces); $i++) {
-           if (!($this->braces[$i] === '(' || $this->braces[$i] === ')'
-               || $this->braces[$i] === '{' || $this->braces[$i] === '}' 
-            || $this->braces[$i] === '[' || $this->braces[$i] === ']'
-            || $this->braces[$i] === '<' || $this->braces[$i] === '>')) {
+        for ($i = 0; $i < strlen($braces); $i++) {
+
+            if (!(in_array($braces[$i], $this->openBraces)
+               || in_array($braces[$i], $this->closeBraces))) {
                 echo 'Invalid string. Please, try again.' . PHP_EOL;
-            } elseif ($this->braces[$i] === '(' || $this->braces[$i] === '{' 
-            || $this->braces[$i] === '[' || $this->braces[$i] === '<') {
-                array_push($this->balance, $this->braces[$i]);
-            } elseif ($this->braces[$i] === ')') {
-                if (array_pop($this->balance) !== '(') {
-                    $this->result = false;
-                    var_dump($this->result);
-                }
-            } elseif ($this->braces[$i] === '}') {
-                if (array_pop($this->balance) !== '{') {
-                    $this->result = false;
-                    var_dump($this->result);
-                }
-            } elseif ($this->braces[$i] === ']') {
-                if (array_pop($this->balance) !== '[') {
-                    $this->result = false;
-                    var_dump($this->result);
-                }
-                array_push($this->balance, $this->braces[$i]);
-            } elseif ($this->braces[$i] === '>') {
-                if (array_pop($this->balance) !== '<') {
-                    $this->result = false;
-                    var_dump($this->result);
-                }
-                array_push($this->balance, $this->braces[$i]);
+
+            } elseif (in_array($braces[$i], $this->openBraces)) {
+               array_push($this->balance, $braces[$i]);
+
+            } elseif ($braces[$i] == $this->closeBraces[array_pop($this->balance)]) {
+               continue;
+
+            } else {
+               $this->result = false;
+               array_push($this->balance, $braces[$i]);
             }
         }
-        if (count($this->balance) == 0) {
+        if (count($this->balance) === 0) {
             $this->result = true;
-            var_dump($this->result);
         }
+        var_dump($this->result);
     }
 }
 
-if (!isset($argv[1])) {
-    echo 'Please, enter some braces.' . PHP_EOL;
-} else {
-    $obj = new bracesSymmetry($argv[1]);
-}
+$obj = new bracesSymmetry('{[(<>)]}');
