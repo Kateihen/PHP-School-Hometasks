@@ -1,9 +1,7 @@
 <?php
+use App\{Truck, PassengerCar, Catalog};
 
-require_once __DIR__ . "/Car.php";
-require_once __DIR__ . "/PassengerCar.php";
-require_once __DIR__ . "/Truck.php";
-require_once __DIR__ . "/Catalog.php";
+require_once __DIR__ . "/vendor/autoload.php";
 
 $carreraGT = new PassengerCar();
 
