@@ -5,14 +5,14 @@ final class SingleLogger
     private static $instances = [];
     private $logFile;
 
-    protected function __construct()
+    private function __construct()
     {
         $this->logFile = fopen('Logs', 'a');
     }
 
-    protected function __clon() {}
+    private function __clon() {}
 
-    protected function __wakeup()
+    private function __wakeup()
     {
         throw new Exception("Cannot serialise Singletone.");
     }
