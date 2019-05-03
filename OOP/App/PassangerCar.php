@@ -1,8 +1,6 @@
 <?php
 namespace App;
 
-require_once __DIR__ . "/Car.php";
-
 class PassengerCar extends Car
 {
     protected $type = 'Passenger car';
