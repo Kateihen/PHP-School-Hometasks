@@ -12,7 +12,7 @@ class Catalog
 
 	public function getAllCarsInfo()
 	{
-			return $this->cars;
+		return $this->cars;
 	}
 
     public function getCarInfo(Car $car)
