@@ -1,3 +1,6 @@
+# Style Conference
+A web site featuring Style Conference that takes place in Chicago, Il.
+
 ## Getting Started: Full Setup Instructions
 1. Clone this repo and cd into the project folder.
 2. Install composer dependencies.
