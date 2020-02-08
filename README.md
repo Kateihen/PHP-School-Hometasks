@@ -1,5 +1,5 @@
 # Style Conference
-A web site featuring Style Conference that takes place in Chicago, Il.
+A ***test*** web site featuring Style Conference that takes place in Chicago, Il.
 
 ## Getting Started: Full Setup Instructions
 1. Clone this repo and cd into the project folder.
@@ -29,3 +29,32 @@ php artisan db:seed
 ```
 php artisan serve
 ```
+10. Run tests:
+```
+vendor/bin/phpunit
+```
+
+## Features
+ - Public facing pages:
+   - home page;
+   - view all speakers;
+   - view the venue;
+   - view the schedule;
+   - register;
+   - admin login page;
+ - Admin panel:
+   - list of all registered visitors;
+   - list of registered managers;
+   - registration of a new manager page.
+ - Features available for all visitors:
+   - register to the conference (an queued email is sent after registrtation);
+ - Features available for managers:
+   - view all visitors that were registered;
+   - view all managers that were registered;
+   - register a new manager.
+   
+## Acknowledgements
+The front end part of the web site was inspired by a wonderful course by [Shay Howe](https://learn.shayhowe.com/html-css/).
+
+## Attention!
+This web site is just a practice aimed to improve my skills. If you have any comments or corrections, just let me know, I'll appreciate it very much!
